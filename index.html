@@ -333,6 +333,8 @@ input:disabled { opacity: 0.5; background: #e8e8e8; cursor: not-allowed; }
 .btn-baixar:hover { background: var(--primario2); }
 .btn-baixar-sem-assinatura { background: var(--destaque); color: #fff; }
 .btn-baixar-sem-assinatura:hover { background: var(--destaque2); }
+.btn-baixar-cliente { background: var(--verde); color: #fff; }
+.btn-baixar-cliente:hover { background: #1f5a24; }
 .btn-copiar {
   background: var(--branco);
   color: var(--primario);
@@ -398,7 +400,7 @@ input:disabled { opacity: 0.5; background: #e8e8e8; cursor: not-allowed; }
       <img src="data:image/png;base64,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" style="height:44px;width:auto;object-fit:contain" alt="Imobiliária Bandeirantes">
     </div>
     <div>
-      <h1>Declaração de Entrega de Chaves <span class="versao">v3</span></h1>
+      <h1>Declaração de Entrega de Chaves <span class="versao">v13</span></h1>
       <div class="sub">Imobiliária Bandeirantes</div>
     </div>
   </div>
@@ -478,7 +480,7 @@ input:disabled { opacity: 0.5; background: #e8e8e8; cursor: not-allowed; }
         <label>O que ficou pendente? (deixe tudo desmarcado se não há pendências)</label>
         <div class="opcoes" id="pendencias_opcoes">
           <label class="opcao"><input type="checkbox" id="pend_aluguel" onchange="atualizarPreview()"> Aluguel</label>
-          <label class="opcao"><input type="checkbox" id="pend_agua" onchange="atualizarPreview()"> Água (Sabesp)</label>
+          <label class="opcao"><input type="checkbox" id="pend_agua" onchange="atualizarPreview()"> Água (SABESP)</label>
           <label class="opcao"><input type="checkbox" id="pend_energia" onchange="atualizarPreview()"> Energia (CPFL)</label>
           <label class="opcao"><input type="checkbox" id="pend_limpeza" onchange="atualizarPreview()"> Limpeza do imóvel</label>
           <label class="opcao"><input type="checkbox" id="pend_pintura" onchange="atualizarPreview()"> Pintura</label>
@@ -510,7 +512,8 @@ input:disabled { opacity: 0.5; background: #e8e8e8; cursor: not-allowed; }
   <button type="button" class="btn btn-limpar" onclick="limparDados()">🗑️ Limpar Dados</button>
   <button type="button" class="btn btn-copiar" onclick="copiarTexto()">📋 Copiar Texto</button>
   <button type="button" class="btn btn-baixar" onclick="baixarPDF()">📄 Baixar PDF</button>
-  <button type="button" class="btn btn-baixar" onclick="baixarPDFsemAssinatura()" style="background:var(--destaque);color:#fff">📄 Baixar PDF (sem assinatura)</button>
+  <button type="button" class="btn btn-baixar-sem-assinatura" onclick="baixarPDFsemAssinatura()">📄 Baixar PDF (sem ass. digital FICA)</button>
+  <button type="button" class="btn btn-baixar-cliente" onclick="baixarPDFcomAssinaturaCliente()">📄 Baixar PDF (com ass. do cliente)</button>
 </div>
   </div>
 </div>
@@ -646,11 +649,21 @@ function templateInquilino(id, idx, total) {
   return '' +
   '<div class="subbloco" id="inq_' + id + '_bloco">' +
     '<div class="subbloco-titulo"><span>Pessoa ' + (idx + 1) + '</span>' + botaoRemover + '</div>' +
-    '<div class="field-group">' +
-      '<label>Sexo</label>' +
-      '<div class="opcoes" data-radio-group="inq_' + id + '_sexo">' +
-        '<label class="opcao"><input type="radio" name="inq_' + id + '_sexo" value="M" onclick="cliqueRadioDesmarcavel(event)"> Masculino</label>' +
-        '<label class="opcao"><input type="radio" name="inq_' + id + '_sexo" value="F" onclick="cliqueRadioDesmarcavel(event)"> Feminino</label>' +
+    '<div class="grid2">' +
+      '<div class="field-group">' +
+        '<label>Sexo</label>' +
+        '<div class="opcoes" data-radio-group="inq_' + id + '_sexo">' +
+          '<label class="opcao"><input type="radio" name="inq_' + id + '_sexo" value="M" onclick="cliqueRadioDesmarcavel(event)"> Masculino</label>' +
+          '<label class="opcao"><input type="radio" name="inq_' + id + '_sexo" value="F" onclick="cliqueRadioDesmarcavel(event)"> Feminino</label>' +
+        '</div>' +
+      '</div>' +
+      '<div class="field-group">' +
+        '<label>Nacionalidade</label>' +
+        '<div class="opcoes" data-radio-group="inq_' + id + '_origem">' +
+          '<label class="opcao marcada"><input type="radio" name="inq_' + id + '_origem" value="brasileiro" checked onclick="selecionarOrigem(' + id + ', this)"> Brasileiro(a)</label>' +
+          '<label class="opcao"><input type="radio" name="inq_' + id + '_origem" value="estrangeiro" onclick="selecionarOrigem(' + id + ', this)"> Estrangeiro(a)</label>' +
+        '</div>' +
+        '<input type="text" id="inq_' + id + '_nacionalidade" placeholder="Qual nacionalidade? Ex.: venezuelano(a), argentino(a)..." style="display:none;margin-top:7px" oninput="atualizarPreview()">' +
       '</div>' +
     '</div>' +
     blocoCasados +
@@ -666,15 +679,18 @@ function templateInquilino(id, idx, total) {
     '</div>' +
     '<div class="grid2">' +
       '<div class="field-group">' +
-        '<label>RG</label>' +
+        '<label id="inq_' + id + '_rg_label">RG</label>' +
         '<input type="text" id="inq_' + id + '_rg" placeholder="00.000.000-0" oninput="atualizarPreview()">' +
         '<div class="opcoes" style="margin-top:7px">' +
-          '<label class="opcao"><input type="checkbox" id="inq_' + id + '_sem_rg" onchange="toggleSemRG(' + id + ')"> Não tem RG</label>' +
+          '<label class="opcao"><input type="checkbox" id="inq_' + id + '_sem_rg" onchange="toggleSemRG(' + id + ')"> <span id="inq_' + id + '_sem_rg_label">Não tem RG</span></label>' +
         '</div>' +
       '</div>' +
       '<div class="field-group">' +
         '<label>CPF</label>' +
         '<input type="text" id="inq_' + id + '_cpf" placeholder="000.000.000-00" maxlength="14" oninput="mascararCPF(this); atualizarPreview()">' +
+        '<div class="opcoes" style="margin-top:7px">' +
+          '<label class="opcao"><input type="checkbox" id="inq_' + id + '_sem_cpf" onchange="toggleSemCPF(' + id + ')"> Não tem CPF</label>' +
+        '</div>' +
       '</div>' +
     '</div>' +
     '<div class="field-group">' +
@@ -782,6 +798,43 @@ function toggleSemRG(id) {
   atualizarPreview();
 }
 
+function toggleSemCPF(id) {
+  const semCPF = document.getElementById('inq_' + id + '_sem_cpf').checked;
+  const campoCPF = document.getElementById('inq_' + id + '_cpf');
+  campoCPF.disabled = semCPF;
+  if (semCPF) campoCPF.value = '';
+  atualizarPreview();
+}
+
+function selecionarOrigem(id, inputEl) {
+  const grupoEl = inputEl.closest('.opcoes');
+  grupoEl.querySelectorAll('.opcao').forEach(o => o.classList.remove('marcada'));
+  inputEl.closest('.opcao').classList.add('marcada');
+  toggleEstrangeiro(id);
+}
+
+function toggleEstrangeiro(id) {
+  const estrangeiro = radioValor('inq_' + id + '_origem') === 'estrangeiro';
+  const campoNacionalidade = document.getElementById('inq_' + id + '_nacionalidade');
+  const labelRG = document.getElementById('inq_' + id + '_rg_label');
+  const campoRG = document.getElementById('inq_' + id + '_rg');
+  const labelSemRG = document.getElementById('inq_' + id + '_sem_rg_label');
+
+  campoNacionalidade.style.display = estrangeiro ? 'block' : 'none';
+  if (!estrangeiro) campoNacionalidade.value = '';
+
+  if (estrangeiro) {
+    labelRG.textContent = 'RNM (Carteira de Registro Nacional Migratório)';
+    campoRG.placeholder = 'Ex.: F30-1798-5';
+    if (labelSemRG) labelSemRG.textContent = 'Não tem RNM';
+  } else {
+    labelRG.textContent = 'RG';
+    campoRG.placeholder = '00.000.000-0';
+    if (labelSemRG) labelSemRG.textContent = 'Não tem RG';
+  }
+  atualizarPreview();
+}
+
 function toggleCasadosEntreSi() {
   const ativo = document.getElementById('casados_entre_si').checked;
   document.getElementById('campos_casamento').style.display = ativo ? 'grid' : 'none';
@@ -832,7 +885,10 @@ function formatarDataBR(iso) {
 function formatarDataExtenso(iso) {
   if (!iso) return '';
   const [a, m, d] = iso.split('-').map(Number);
-  return d + ' de ' + MESES[m - 1] + ' de ' + a;
+  const dia = String(d).padStart(2, '0');
+  const mes = MESES[m - 1];
+  const mesCapitalizado = mes.charAt(0).toUpperCase() + mes.slice(1);
+  return dia + ' de ' + mesCapitalizado + ' de ' + a;
 }
 
 function coletarInquilinos() {
@@ -844,7 +900,10 @@ function coletarInquilinos() {
     estadoCivil: radioValor('inq_' + id + '_estado_civil'),
     rg: v('inq_' + id + '_rg'),
     semRG: !!document.getElementById('inq_' + id + '_sem_rg')?.checked,
-    cpf: v('inq_' + id + '_cpf')
+    cpf: v('inq_' + id + '_cpf'),
+    semCPF: !!document.getElementById('inq_' + id + '_sem_cpf')?.checked,
+    estrangeiro: radioValor('inq_' + id + '_origem') === 'estrangeiro',
+    nacionalidade: v('inq_' + id + '_nacionalidade')
   }));
 }
 
@@ -853,10 +912,28 @@ const NEGRITO_INICIO = '\u0001';
 const NEGRITO_FIM = '\u0002';
 function negrito(txt) { return NEGRITO_INICIO + txt + NEGRITO_FIM; }
 
+// monta o trecho "portador(a) da Cédula de Identidade RG nº X e inscrito(a) no CPF/MF sob nº Y",
+// cobrindo os casos de RG/RNM ausente, CPF ausente, ou ambos presentes (nunca faltam os dois)
+function textoDocumento(inq, portador, inscrito) {
+  if (inq.semRG) {
+    return portador + ' do Registro Geral - CPF nº ' + (inq.cpf || '—');
+  }
+  const rotuloDoc = inq.estrangeiro
+    ? 'da Carteira de Registro Nacional Migratório (RNM)'
+    : 'da Cédula de Identidade RG';
+  const trechoRG = portador + ' ' + rotuloDoc + ' nº ' + (inq.rg || '—');
+  if (inq.semCPF) {
+    return trechoRG;
+  }
+  return trechoRG + ' e ' + inscrito + ' no CPF/MF sob nº ' + (inq.cpf || '—');
+}
+
 function frasePessoa(inq) {
   const fem = inq.sexo === 'F';
   const tratamento = fem ? 'a Sra.' : 'o Sr.';
-  const nacionalidade = fem ? 'brasileira' : 'brasileiro';
+  const nacionalidade = inq.estrangeiro
+    ? (inq.nacionalidade || (fem ? 'estrangeira' : 'estrangeiro'))
+    : (fem ? 'brasileira' : 'brasileiro');
   const portador = fem ? 'portadora' : 'portador';
   const inscrito = fem ? 'inscrita' : 'inscrito';
   const ec = ESTADOS_CIVIS.find(e => e.value === inq.estadoCivil);
@@ -869,9 +946,7 @@ function frasePessoa(inq) {
 
   const nome = (inq.nome || '—').toUpperCase();
 
-  const documentoTexto = inq.semRG
-    ? portador + ' do Registro Geral - CPF nº ' + (inq.cpf || '—')
-    : portador + ' da Cédula de Identidade RG nº ' + (inq.rg || '—') + ' e ' + inscrito + ' no CPF/MF sob nº ' + (inq.cpf || '—');
+  const documentoTexto = textoDocumento(inq, portador, inscrito);
 
   return tratamento + ' ' + negrito(nome) + ', ' + qualificacao + ', ' + documentoTexto;
 }
@@ -880,7 +955,9 @@ function frasePessoa(inq) {
 function fraseCasal(p1, p2, regimeTxt, dataCasamento) {
   const fem1 = p1.sexo === 'F';
   const tratamento1 = fem1 ? 'a Sra.' : 'o Sr.';
-  const nacionalidade1 = fem1 ? 'brasileira' : 'brasileiro';
+  const nacionalidade1 = p1.estrangeiro
+    ? (p1.nacionalidade || (fem1 ? 'estrangeira' : 'estrangeiro'))
+    : (fem1 ? 'brasileira' : 'brasileiro');
   const portador1 = fem1 ? 'portadora' : 'portador';
   const inscrito1 = fem1 ? 'inscrita' : 'inscrito';
 
@@ -889,14 +966,14 @@ function fraseCasal(p1, p2, regimeTxt, dataCasamento) {
   const qualificacao1 = partes1.join(', ');
   const nome1 = (p1.nome || '—').toUpperCase();
 
-  const documentoTexto1 = p1.semRG
-    ? portador1 + ' do Registro Geral - CPF nº ' + (p1.cpf || '—')
-    : portador1 + ' da Cédula de Identidade RG nº ' + (p1.rg || '—') + ' e ' + inscrito1 + ' no CPF/MF sob nº ' + (p1.cpf || '—');
+  const documentoTexto1 = textoDocumento(p1, portador1, inscrito1);
 
   const frase1 = tratamento1 + ' ' + negrito(nome1) + ', ' + qualificacao1 + ', ' + documentoTexto1;
 
   const fem2 = p2.sexo === 'F';
-  const nacionalidade2 = fem2 ? 'brasileira' : 'brasileiro';
+  const nacionalidade2 = p2.estrangeiro
+    ? (p2.nacionalidade || (fem2 ? 'estrangeira' : 'estrangeiro'))
+    : (fem2 ? 'brasileira' : 'brasileiro');
   const portador2 = fem2 ? 'portadora' : 'portador';
   const inscrito2 = fem2 ? 'inscrita' : 'inscrito';
 
@@ -910,9 +987,7 @@ function fraseCasal(p1, p2, regimeTxt, dataCasamento) {
   else if (p1.sexo === 'F' && p2.sexo === 'M') conector = 'e seu marido';
   else conector = 'e seu(sua) cônjuge';
 
-  const documentoTexto2 = p2.semRG
-    ? portador2 + ' do Registro Geral - CPF nº ' + (p2.cpf || '—')
-    : portador2 + ' da Cédula de Identidade RG nº ' + (p2.rg || '—') + ' e ' + inscrito2 + ' no CPF/MF sob nº ' + (p2.cpf || '—');
+  const documentoTexto2 = textoDocumento(p2, portador2, inscrito2);
 
   const frase2 = conector + ' ' + negrito(nome2) + ', ' + qualificacao2 + ', ' + documentoTexto2;
 
@@ -932,13 +1007,13 @@ function fraseItens(itens) {
 function clausulaPendencias() {
   const itens = [];
   if (document.getElementById('pend_aluguel')?.checked) itens.push('aluguel');
-  if (document.getElementById('pend_agua')?.checked) itens.push('água (Sabesp)');
+  if (document.getElementById('pend_agua')?.checked) itens.push('água (SABESP)');
   if (document.getElementById('pend_energia')?.checked) itens.push('energia (CPFL)');
   if (document.getElementById('pend_limpeza')?.checked) itens.push('limpeza do imóvel');
   if (document.getElementById('pend_pintura')?.checked) itens.push('pintura');
 
   if (itens.length === 0) {
-    return 'não havendo pendências a serem regularizadas nesta data';
+    return '';
   }
   return 'ficando em aberto acertos de ' + fraseItens(itens) + ' a serem feitos';
 }
@@ -969,11 +1044,14 @@ function montarTexto() {
 
   const dataDeclaracao = formatarDataExtenso(v('data_declaracao')) || '—';
 
+  const clausulaPend = clausulaPendencias();
+  const trechoPendencias = clausulaPend ? ', ' + clausulaPend : '';
+
   const paragrafo = 'Declaramos para os devidos fins que ' + listaPessoas + ', nesta data, ' + negrito(verbo) +
     ' à entrega das chaves do imóvel situado na ' + endereco + ', ' + clausulaContrato +
     ', sob administração de ' + negrito('FICA ADMINISTRAÇÃO DE IMÓVEIS LTDA') + ', inscrita no CNPJ sob nº ' +
-    '51.909.307/0001-40, e CRECI 4419-J, com sede na Av. Jânio Quadros, nº 444 - Centro - Monte Mor/SP, ' +
-    clausulaPendencias() + '.';
+    '51.909.307/0001-40, e CRECI 4419-J, com sede na Av. Jânio Quadros, nº 444 - Centro - Monte Mor/SP' +
+    trechoPendencias + '.';
 
   const encerramento = 'Por ser verdade, firmamos a presente nesta data.';
 
@@ -999,8 +1077,9 @@ function listarPendentes() {
     if (!inq.sexo) pendentes.push({ label: n + 'sexo' });
     if (!inq.nome) pendentes.push({ label: n + 'nome completo', id: 'inq_' + inquilinos[inq.idx - 1] + '_nome' });
     if (!inq.profissao) pendentes.push({ label: n + 'profissão' });
-    if (!inq.rg && !inq.semRG) pendentes.push({ label: n + 'RG' });
-    if (!inq.cpf) pendentes.push({ label: n + 'CPF' });
+    if (inq.estrangeiro && !inq.nacionalidade) pendentes.push({ label: n + 'nacionalidade' });
+    if (!inq.rg && !inq.semRG) pendentes.push({ label: n + (inq.estrangeiro ? 'RNM' : 'RG') });
+    if (!inq.cpf && !inq.semCPF) pendentes.push({ label: n + 'CPF' });
     if (!casadosAtivo && !inq.estadoCivil) pendentes.push({ label: n + 'estado civil' });
   });
 
@@ -1173,7 +1252,7 @@ function desenharLinhasJustificadas(pagina, linhas, xInicial, yInicial, larguraM
   return y;
 }
 
-async function construirPDF(semAssinatura) {
+async function construirPDF(semAssinatura, comAssinaturaCliente) {
   const { PDFDocument, StandardFonts, rgb } = PDFLib;
   const pdfDoc = await PDFDocument.create();
   // Arial não pode ser embutida (fonte proprietária); Helvetica é a substituta padrão
@@ -1254,7 +1333,8 @@ async function construirPDF(semAssinatura) {
   const alturaEncerramento = linhasEncerramento.length * entrelinha;
   const espacoAntesFechamento = 28;
   const alturaFechamento = linhasFechamento.length * entrelinha;
-  const alturaAssinatura = 100;
+  const numInquilinosParaAssinatura = comAssinaturaCliente ? coletarInquilinos().length : 0;
+  const alturaAssinatura = numInquilinosParaAssinatura >= 2 ? 175 : 100;
   const alturaTotalConteudo = alturaTitulo + alturaParagrafo + espacoAntesEncerramento + alturaEncerramento + espacoAntesFechamento + alturaFechamento + alturaAssinatura;
 
   const espacoDisponivel = yFimCabecalho - ALTURA_RODAPE;
@@ -1277,7 +1357,8 @@ async function construirPDF(semAssinatura) {
   pagina.drawText(textoFechamento, { x: MARGEM + larguraMax - larguraFechamento, y, size: tamanhoTexto, font: fonteRegular, color: corPreta });
   y -= entrelinha;
 
-  // assinatura da imobiliária (assinatura real, tinta azul-caneta, alinhada à direita)
+  // assinatura da imobiliária (assinatura real, tinta azul-caneta, alinhada à direita) —
+  // e, opcionalmente, um espaço à esquerda para o(s) inquilino(s) assinar(em)
   y -= 40;
   const largAssinatura = 150;
   const altAssinatura = largAssinatura * (assinaturaImg.height / assinaturaImg.width);
@@ -1288,10 +1369,34 @@ async function construirPDF(semAssinatura) {
     pagina.drawImage(assinaturaImg, { x: xDireita - largAssinatura - 35, y: y - altAssinatura - 45, width: largAssinatura, height: altAssinatura });
   }
   y -= altAssinatura;
+  const xEsquerda = MARGEM;
+  const xLinhaAssinaturaEsquerda = xEsquerda + larguraLinhaAssinatura;
+  const nomesInquilinos = comAssinaturaCliente ? coletarInquilinos().map(i => (i.nome || '—').toUpperCase()) : [];
+
+  if (comAssinaturaCliente && nomesInquilinos.length >= 2) {
+    // duas assinaturas separadas (uma linha + nome para cada inquilino), empilhadas
+    let yLinhaCliente = y;
+    nomesInquilinos.slice(0, 2).forEach(nome => {
+      pagina.drawLine({ start: { x: xEsquerda, y: yLinhaCliente }, end: { x: xLinhaAssinaturaEsquerda, y: yLinhaCliente }, thickness: 1, color: corPreta });
+      const larguraNome = fonteNegrito.widthOfTextAtSize(nome, 10);
+      pagina.drawText(nome, { x: xEsquerda + (larguraLinhaAssinatura - larguraNome) / 2, y: yLinhaCliente - 16, size: 10, font: fonteNegrito, color: corPreta });
+      yLinhaCliente -= 70;
+    });
+  } else if (comAssinaturaCliente) {
+    pagina.drawLine({ start: { x: xEsquerda, y }, end: { x: xLinhaAssinaturaEsquerda, y }, thickness: 1, color: corPreta });
+  }
+
   pagina.drawLine({ start: { x: xLinhaAssinatura, y }, end: { x: xDireita, y }, thickness: 1, color: corPreta });
+
   y -= 16;
   const textoAssinatura1 = 'FICA ADMINISTRAÇÃO DE IMÓVEIS LTDA.';
   pagina.drawText(textoAssinatura1, { x: xDireita - fonteNegrito.widthOfTextAtSize(textoAssinatura1, 11), y, size: 11, font: fonteNegrito, color: corPreta });
+
+  if (comAssinaturaCliente && nomesInquilinos.length === 1) {
+    const larguraNome = fonteNegrito.widthOfTextAtSize(nomesInquilinos[0], 10);
+    pagina.drawText(nomesInquilinos[0], { x: xEsquerda + (larguraLinhaAssinatura - larguraNome) / 2, y, size: 10, font: fonteNegrito, color: corPreta });
+  }
+
   y -= 14;
   const textoAssinatura2 = 'CRECI 4419-J';
   pagina.drawText(textoAssinatura2, { x: xDireita - fonteNegrito.widthOfTextAtSize(textoAssinatura2, 10), y, size: 10, font: fonteNegrito, color: corPreta });
@@ -1311,16 +1416,42 @@ async function construirPDF(semAssinatura) {
 
   return pdfDoc;
 }
+
+// monta o nome do arquivo: nomes dos inquilinos + data da entrega, sem número de versão
+function nomeArquivoPDF() {
+  const inqs = coletarInquilinos();
+  const nomes = inqs
+    .map(i => (i.nome || '').split(' ')[0])
+    .filter(Boolean);
+  const nomesTexto = nomes.length ? nomes.join('_') : 'pessoa';
+  const dataIso = v('data_declaracao');
+  const dataTexto = dataIso ? dataIso.split('-').reverse().join('-') : '';
+  return 'Declaracao_Entrega_Chaves_' + nomesTexto + (dataTexto ? '_' + dataTexto : '') + '.pdf';
+}
+
 async function baixarPDFsemAssinatura() {
   if (!validarObrigatorios()) return;
-  const pdfDoc = await construirPDF(true); // true = sem assinatura
+  const pdfDoc = await construirPDF(true); // true = sem assinatura digital da FICA
   const bytes = await pdfDoc.save();
   const blob = new Blob([bytes], { type: 'application/pdf' });
   const url = URL.createObjectURL(blob);
-  const primeiroNome = (coletarInquilinos()[0]?.nome || 'pessoa').split(' ')[0];
   const a = document.createElement('a');
   a.href = url;
-  a.download = 'Declaracao_Entrega_Chaves_v3_' + primeiroNome + '.pdf';
+  a.download = nomeArquivoPDF();
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+async function baixarPDFcomAssinaturaCliente() {
+  if (!validarObrigatorios()) return;
+  const pdfDoc = await construirPDF(false, true); // com assinatura da FICA + espaço pro cliente assinar
+  const bytes = await pdfDoc.save();
+  const blob = new Blob([bytes], { type: 'application/pdf' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = nomeArquivoPDF();
   document.body.appendChild(a);
   a.click();
   a.remove();
@@ -1440,6 +1571,22 @@ function mapearSexo(texto) {
   const t = texto.toLowerCase();
   if (t.includes('feminino')) return 'F';
   return 'M';
+}
+
+// marca a pill "Estrangeiro(a)" e preenche a nacionalidade quando o cadastro traz algo
+// diferente de brasileiro(a); se vier vazio ou "brasileiro(a)", mantém o padrão da pill
+function aplicarNacionalidadeCadastro(id, nacionalidadeTexto) {
+  var nac = (nacionalidadeTexto || '').toString().trim();
+  var nacLower = nac.toLowerCase();
+  var ehBrasileiro = !nac || nac === '—' || nac === '-' || nacLower.indexOf('brasil') >= 0;
+  if (ehBrasileiro) return;
+  var radioEstrangeiro = document.querySelector('input[name="inq_' + id + '_origem"][value="estrangeiro"]');
+  if (radioEstrangeiro) {
+    radioEstrangeiro.checked = true;
+    selecionarOrigem(id, radioEstrangeiro);
+    var campoNacionalidade = document.getElementById('inq_' + id + '_nacionalidade');
+    if (campoNacionalidade) campoNacionalidade.value = nacLower;
+  }
 }
 
 function mapearEstadoCivilCadastro(texto) {
@@ -1618,6 +1765,8 @@ console.log('DEBUG CASAMENTO:', {
   if (item.locatario1_nome && item.locatario1_nome !== '—' && item.locatario1_nome !== '-') {
     try { document.getElementById('inq_' + id + '_nome').value = tituloCase(item.locatario1_nome); } catch(e) { console.error('Erro nome1:', e); }
 
+    try { aplicarNacionalidadeCadastro(id, item.locatario1_nacionalidade); } catch(e) { console.error('Erro nacionalidade1:', e); }
+
     try {
       if (item.locatario1_sexo && item.locatario1_sexo !== '—') {
         var sexo = mapearSexo(item.locatario1_sexo);
@@ -1675,6 +1824,8 @@ console.log('DEBUG CASAMENTO:', {
     var id2 = inquilinos[1];
     if (id2) {
       try { document.getElementById('inq_' + id2 + '_nome').value = tituloCase(item.locatario2_nome); } catch(e) { console.error('Erro nome2:', e); }
+
+      try { aplicarNacionalidadeCadastro(id2, item.locatario2_nacionalidade); } catch(e) { console.error('Erro nacionalidade2:', e); }
 
       try {
         if (item.locatario2_sexo && item.locatario2_sexo !== '—') {
@@ -1768,10 +1919,9 @@ async function baixarPDF() {
   const bytes = await pdfDoc.save();
   const blob = new Blob([bytes], { type: 'application/pdf' });
   const url = URL.createObjectURL(blob);
-  const primeiroNome = (coletarInquilinos()[0]?.nome || 'pessoa').split(' ')[0];
   const a = document.createElement('a');
   a.href = url;
-  a.download = 'Declaracao_Entrega_Chaves_v3_' + primeiroNome + '.pdf';
+  a.download = nomeArquivoPDF();
   document.body.appendChild(a);
   a.click();
   a.remove();
@@ -1839,7 +1989,11 @@ function localizarInicioLocatario(texto) {
   const regexLabel = /LOCAT[ÁA]RI[OA]S?/gi;
   let m;
   while ((m = regexLabel.exec(texto)) !== null) {
-    const janela = texto.slice(m.index, m.index + 400);
+    // janela maior que o necessário para RG puro, porque a qualificação de um(a)
+    // locatário(a) estrangeiro(a) ("...portador da Carteira de Registro Nacional
+    // Migratório (RNM) nº...") é bem mais longa que a de RG e pode empurrar o CPF
+    // para mais longe do rótulo "LOCATÁRIO"
+    const janela = texto.slice(m.index, m.index + 900);
     if (/\d{3}\.\d{3}\.\d{3}-\d{2}/.test(janela)) return m.index;
   }
   return -1;
@@ -1868,52 +2022,75 @@ function extrairBlocoLocatario(texto) {
     'PRAZO\\s+DA\\s+LOCA', 'VIG[ÊE]NCIA'
   ];
   let fim = proximaOcorrencia(texto, inicio + 15, marcadoresFim);
-  if (fim === -1 || fim - inicio > 1200) fim = Math.min(texto.length, inicio + 500);
+  if (fim === -1 || fim - inicio > 1800) fim = Math.min(texto.length, inicio + 900);
   return texto.slice(inicio, fim);
 }
 
 // extrai nome, sexo, estado civil, profissão, RG e CPF de cada pessoa dentro de um bloco de texto
 function extrairPessoasDoBloco(bloco) {
   const pessoas = [];
-  const cpfsVistos = new Set();
+  const chavesVistas = new Set();
 
   // nem todo contrato menciona o estado civil na qualificação (às vezes pula direto pra
   // profissão), e alguns usam "Registro Geral" em vez de "Cédula de Identidade", às vezes
-  // sem RG separado do CPF — por isso estado civil e RG são opcionais aqui
+  // sem RG separado do CPF — por isso estado civil e RG são opcionais aqui.
+  // A nacionalidade é capturada de forma genérica (não só "brasileiro/a") para reconhecer
+  // estrangeiros, e o tipo de documento aceita tanto RG/Registro Geral quanto a Carteira de
+  // Registro Nacional Migratório (RNM), usada por estrangeiros.
   // IMPORTANTE: sem a flag "i" aqui de propósito — comparar sem diferenciar maiúscula/minúscula
   // faria palavras minúsculas (como "seu marido") contarem como parte do nome em CAIXA ALTA
-  const regexPrincipal = /([A-ZÀ-Ý]{2,}(?:\s+[A-ZÀ-Ý]{2,}){1,6})\s*,\s*([Bb]rasileir[oa])\s*,\s*(?:([Ss]olteir[oa]|[Cc]asad[oa]|[Dd]ivorciad[oa]|[Vv]i[úu]v[oa]|[Ss]eparad[oa](?:\s+judicialmente)?|(?:em\s+)?uni[ãa]o\s+est[áa]vel)\s*,\s*)?([^,]+?)\s*,\s*[Pp]ortador[a]?\s+d[ao]\s+(?:[Cc][ée]dula\s+de\s+[Ii]dentidade|[Rr]egistro\s+[Gg]eral)(?:[^\d]{0,30}(\d[\d.\-]{3,15}[\dXx]?))?[^\d]{0,60}(\d{3}\.\d{3}\.\d{3}-\d{2})/g;
+  const regexPrincipal = /([A-ZÀ-Ý]{2,}(?:\s+[A-ZÀ-Ý]{2,}){1,6})\s*,\s*([a-zà-ÿ]+)\s*,\s*(?:([Ss]olteir[oa]|[Cc]asad[oa]|[Dd]ivorciad[oa]|[Vv]i[úu]v[oa]|[Ss]eparad[oa](?:\s+judicialmente)?|(?:em\s+)?uni[ãa]o\s+est[áa]vel)\s*,\s*)?([^,]+?)\s*,\s*[Pp]ortador[a]?\s+d[ao]\s+((?:[Cc][ée]dula\s+de\s+[Ii]dentidade|[Rr]egistro\s+[Gg]eral)|(?:[Cc]arteira\s+de\s+[Rr]egistro\s+[Nn]acional\s+[Mm]igrat[óo]rio(?:\s*\(?RNM\)?)?))(?:[^\d]{0,30}?(?=[A-Za-z0-9.\-\/]*\d)([A-Za-z0-9][A-Za-z0-9.\-\/]{3,15}[A-Za-z0-9]))?(?:[^\d]{0,60}(\d{3}\.\d{3}\.\d{3}-\d{2}))?/g;
   let m;
   while ((m = regexPrincipal.exec(bloco)) !== null) {
-    const cpf = m[6];
-    if (cpfsVistos.has(cpf)) continue;
-    cpfsVistos.add(cpf);
+    const nome = m[1].trim();
+    const cpf = m[7] || '';
+    const rg = m[6] || '';
+    // sem CPF (acontece às vezes com estrangeiros, cujo RNM já basta como documento no
+    // contrato), usa nome + RG como chave alternativa pra não perder nem duplicar a pessoa
+    const chave = cpf || (nome + '|' + rg);
+    if (chavesVistas.has(chave)) continue;
+    chavesVistas.add(chave);
     const textoAntes = bloco.slice(Math.max(0, m.index - 20), m.index);
+    const nacionalidadeTxt = m[2].toLowerCase();
+    const ehBrasileiro = /^brasileir[oa]$/.test(nacionalidadeTxt);
+    const tipoDoc = m[5] || '';
+    const estrangeiro = !ehBrasileiro || /migrat[óo]rio/i.test(tipoDoc);
     pessoas.push({
-      nome: m[1].trim(),
+      nome: nome,
       sexo: /a$/i.test(m[2]) ? 'F' : 'M',
       estadoCivil: m[3] ? mapearEstadoCivil(m[3]) : '',
       profissao: m[4].trim(),
-      rg: m[5] || '',
+      rg: rg,
       cpf: cpf,
+      estrangeiro: estrangeiro,
+      nacionalidade: estrangeiro ? nacionalidadeTxt : '',
       viaConjuge: /(sua\s+mulher|seu\s+marido)\s*$/i.test(textoAntes)
     });
   }
 
-  // cônjuge citado como "e sua mulher/seu marido NOME, brasileiro(a), profissão, portador..."
+  // cônjuge citado como "e sua mulher/seu marido NOME, nacionalidade, profissão, portador..."
   // (comum quando os dois são casados entre si) — não repete estado civil, então assume "casado"
-  const regexConjuge = /(?:sua\s+mulher|seu\s+marido)\s+([A-ZÀ-Ý]{2,}(?:\s+[A-ZÀ-Ý]{2,}){1,6})\s*,\s*([Bb]rasileir[oa])\s*,\s*([^,]+?)\s*,\s*[Pp]ortador[a]?\s+d[ao]\s+(?:[Cc][ée]dula\s+de\s+[Ii]dentidade|[Rr]egistro\s+[Gg]eral)(?:[^\d]{0,30}(\d[\d.\-]{3,15}[\dXx]?))?[^\d]{0,60}(\d{3}\.\d{3}\.\d{3}-\d{2})/g;
+  const regexConjuge = /(?:sua\s+mulher|seu\s+marido)\s+([A-ZÀ-Ý]{2,}(?:\s+[A-ZÀ-Ý]{2,}){1,6})\s*,\s*([a-zà-ÿ]+)\s*,\s*([^,]+?)\s*,\s*[Pp]ortador[a]?\s+d[ao]\s+((?:[Cc][ée]dula\s+de\s+[Ii]dentidade|[Rr]egistro\s+[Gg]eral)|(?:[Cc]arteira\s+de\s+[Rr]egistro\s+[Nn]acional\s+[Mm]igrat[óo]rio(?:\s*\(?RNM\)?)?))(?:[^\d]{0,30}?(?=[A-Za-z0-9.\-\/]*\d)([A-Za-z0-9][A-Za-z0-9.\-\/]{3,15}[A-Za-z0-9]))?(?:[^\d]{0,60}(\d{3}\.\d{3}\.\d{3}-\d{2}))?/g;
   while ((m = regexConjuge.exec(bloco)) !== null) {
-    const cpf = m[5];
-    if (cpfsVistos.has(cpf)) continue;
-    cpfsVistos.add(cpf);
+    const nomeConjuge = m[1].trim();
+    const cpf = m[6] || '';
+    const rg = m[5] || '';
+    const chave = cpf || (nomeConjuge + '|' + rg);
+    if (chavesVistas.has(chave)) continue;
+    chavesVistas.add(chave);
+    const nacionalidadeTxt = m[2].toLowerCase();
+    const ehBrasileiro = /^brasileir[oa]$/.test(nacionalidadeTxt);
+    const tipoDoc = m[4] || '';
+    const estrangeiro = !ehBrasileiro || /migrat[óo]rio/i.test(tipoDoc);
     pessoas.push({
-      nome: m[1].trim(),
+      nome: nomeConjuge,
       sexo: /a$/i.test(m[2]) ? 'F' : 'M',
       estadoCivil: 'casado',
       profissao: m[3].trim(),
-      rg: m[4] || '',
+      rg: rg,
       cpf: cpf,
+      estrangeiro: estrangeiro,
+      nacionalidade: estrangeiro ? nacionalidadeTxt : '',
       viaConjuge: true
     });
   }
@@ -2021,8 +2198,22 @@ function aplicarResultadoImportacao(resultado, status) {
     pessoas.forEach((p, idx) => {
       const id = inquilinos[idx];
       if (p.nome) document.getElementById('inq_' + id + '_nome').value = tituloCase(p.nome);
-      if (p.cpf) document.getElementById('inq_' + id + '_cpf').value = p.cpf;
+      if (p.cpf) {
+        document.getElementById('inq_' + id + '_cpf').value = p.cpf;
+      } else {
+        const chkSemCPF = document.getElementById('inq_' + id + '_sem_cpf');
+        if (chkSemCPF) { chkSemCPF.checked = true; toggleSemCPF(id); }
+      }
       if (p.profissao) document.getElementById('inq_' + id + '_profissao').value = p.profissao.toLowerCase();
+
+      if (p.estrangeiro) {
+        const radioEstrangeiro = document.querySelector('input[name="inq_' + id + '_origem"][value="estrangeiro"]');
+        if (radioEstrangeiro) {
+          radioEstrangeiro.checked = true;
+          selecionarOrigem(id, radioEstrangeiro);
+          if (p.nacionalidade) document.getElementById('inq_' + id + '_nacionalidade').value = p.nacionalidade;
+        }
+      }
 
       if (p.rg) {
         document.getElementById('inq_' + id + '_rg').value = p.rg;
